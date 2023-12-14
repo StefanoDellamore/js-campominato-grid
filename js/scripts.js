@@ -1,24 +1,25 @@
 
-const playButton = document.querySelector ('button');
+const playButton = document.getElementById ('play-button');
+console.log ('playButton', playButton, typeof playButton);
 
-let gameClick = false;
+const selectDifficult = document.getElementById ('difficult');
+console.log ('selectDifficult', selectDifficult, typeof selectDifficult);
+
 playButton.addEventListener('click', function(){
-    if (gameClick == true) {
-        document.querySelector ('box').innerHTML = '';
-    }
-    
+   let gridContainer = document.querySelector ('.container-main');
+    gridContainer.innerHTML = '';
+
     for(let i = 1; i <= 100; i++){
-
-        let cell = document.createElement('div');
+        const cell = document.createElement ('div');
         cell.innerHTML = i;
-        document.querySelector('.box').append(cell);
+        cell.classList.add ('cell');
+        cell.addEventListener ('click', function(){
+            console.log ('this', this, typeof this);
 
-        cell.addEventListener('click', function(){
-            this.classList.toggle('active');
-
-            console.log(this.innerHTML);
-        }
-        );
-
+            cell.classList.add ('active');
+            console.log ();
+        })
+        gridContainer.append (cell);
     }
 });  
+                             

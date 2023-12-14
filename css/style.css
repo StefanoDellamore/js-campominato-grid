@@ -11,12 +11,12 @@ html {
 
 /* reset */
 
-.box {
+.container-main {
     display: flex;
     flex-wrap: wrap;
 }
 
-.box > * {
+.container-main > .cell {
     width: 10%;
     height: 100px;
     line-height: 100px;
@@ -27,7 +27,7 @@ html {
     cursor: pointer;
 }
 
-.box.active {
+.container-main > .cell.active {
     background-color: purple;
     color: rgb(255, 225, 0);;
 }
