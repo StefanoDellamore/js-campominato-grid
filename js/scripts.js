@@ -6,20 +6,22 @@ const selectDifficult = document.getElementById ('difficult');
 console.log ('selectDifficult', selectDifficult, typeof selectDifficult);
 
 playButton.addEventListener('click', function(){
-   let gridContainer = document.querySelector ('.container-main');
+    const cellNumber = parseInt (selectDifficult.value);
+
+    let gridContainer = document.querySelector ('.container-main');
     gridContainer.innerHTML = '';
 
-    for(let i = 1; i <= 100; i++){
+    for(let i = 1; i <= cellNumber; i++){
         const cell = document.createElement ('div');
         cell.innerHTML = i;
-        cell.classList.add ('cell');
+        cell.classList.add ('cell', 'cell-' + cellNumber);
+
         cell.addEventListener ('click', function(){
             console.log ('this', this, typeof this);
 
             cell.classList.add ('active');
             console.log ();
-        })
+        });
         gridContainer.append (cell);
     }
-});  
-                             
+});                   
